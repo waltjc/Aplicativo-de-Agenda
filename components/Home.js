@@ -48,7 +48,7 @@ const Home = () => {
             />
         <TouchableOpacity
             style={styles.button}
-            onPress={() => navigation.navigate('NoteAdd')}
+            onPress={() => navigation.navigate('AddTask')}
         >
             <Entypo name='plus' size={45} color='#67b05b'/>
         </TouchableOpacity>

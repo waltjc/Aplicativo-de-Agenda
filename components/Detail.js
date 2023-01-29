@@ -88,16 +88,17 @@ const styles = StyleSheet.create({
         marginTop: 20,
         marginBottom: 10,
         height: 50,
-        width: '97%',
+        width: '95%',
         borderWidth: 1,
         borderRadius: 5,
+        borderColor: '#67b05b',
         padding: 10
     },
     inputNote:{
         fontSize: 18,
         height: 240,
-        width: '97%',
-        borderColor: '#000',
+        width: '95%',
+        borderColor: '#67b05b',
         borderWidth: 1/2,
         borderRadius: 5,
         padding: 10,
@@ -106,7 +107,7 @@ const styles = StyleSheet.create({
     buttonView: {
         flexDirection: 'row',
         justifyContent: 'space-around',
-        width: '97%'
+        width: '95%'
     },
     button:{
         flex: 1,

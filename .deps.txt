@@ -1,0 +1,11 @@
+DEPENDENCIAS 
+
+1. Firebase: yarn add firebase@9.6.11
+
+2. React Navigation: yarn add @react-navigation/native || npx expo install react-native-screens react-native-safe-area-context || yarn add @react-navigation/stack || yarn add react-native-gesture-handler || npx expo install @react-native-masked-view/masked-view
+
+3. Flash List: npx expo install @shopify/flash-list
+
+4. Vector Icons: yarn add @expo/vector-icons
+
+5. React firebase hooks: yarn add react-firebase-hooks
