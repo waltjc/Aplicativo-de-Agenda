@@ -1,7 +1,7 @@
 //import liraries
 import React, { useState} from 'react';
 import { View, Text, Keyboard, StyleSheet, TextInput, TouchableOpacity} from 'react-native';
-import  { firebase } from '../config';
+import  { firebase } from '../src/config';
 
 const NoteAdd = () => {
     const [title, setTitle] = useState('');

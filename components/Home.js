@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, Pressable, TouchableOpacity } from 'react-native'
 import React, { useState, useEffect} from 'react'
-import { firebase } from '../config'
+import { firebase } from '../src/config'
 import { useNavigation } from '@react-navigation/native'
 import { FlashList } from '@shopify/flash-list';
 import { Entypo } from '@expo/vector-icons';
@@ -50,13 +50,11 @@ const Home = () => {
             style={styles.button}
             onPress={() => navigation.navigate('NoteAdd')}
         >
-            <Entypo name='plus' size={45} color='black'/>
+            <Entypo name='plus' size={45} color='#67b05b'/>
         </TouchableOpacity>
         </View>
     )
 }
-
-export default Home
 
 const styles = StyleSheet.create({
     container: {
@@ -93,3 +91,4 @@ const styles = StyleSheet.create({
         elevation: 7
     }
 })
+export default Home
