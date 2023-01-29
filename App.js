@@ -4,7 +4,7 @@ import Login from './auth/Login';
 import Register from './auth/Register';
 
 import Home from './components/Home';
-import NoteAdd from './components/NodeAdd';
+import AddTask from './components/AddTask';
 import Header from './components/Header';
 import Detail from './components/Detail';
 
@@ -24,21 +24,21 @@ export default function App() {
           headerTitle: () => <Header name="Adicionar Nota"/>,
           headerStyle: {
             backgroundColor:'#67b05b',
-            height:120,
+            height:100,
           }
         }}/>
-        <Stack.Screen component={NoteAdd} name='NoteAdd' options={{
+        <Stack.Screen component={AddTask} name='AddTask' options={{
            headerTitle: () => <Header name="Adicionar Nota"/>,
           headerStyle: {
             backgroundColor:'#67b05b',
-            height:120,
+            height:100,
           }
         }}/>
         <Stack.Screen component={Detail} name='Detail' options={{
           headerTitle: () => <Header name="Adicionar Nota"/>,
           headerStyle: {
             backgroundColor:'#67b05b',
-            height:120,
+            height:100,
           }
         }}/>
       </Stack.Navigator>
