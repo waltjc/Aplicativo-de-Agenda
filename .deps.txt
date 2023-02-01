@@ -9,3 +9,5 @@ DEPENDENCIAS
 4. Vector Icons: yarn add @expo/vector-icons
 
 5. React firebase hooks: yarn add react-firebase-hooks
+
+6. Date time picker: npx expo install @react-native-community/datetimepicker
