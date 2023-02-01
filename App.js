@@ -1,12 +1,12 @@
 import 'react-native-gesture-handler';
 
-import Login from './auth/Login';
-import Register from './auth/Register';
+import Login from './src/pages/Login';
+import Register from './src/pages/Register';
 
-import Home from './components/Home';
-import AddTask from './components/AddTask';
-import Header from './components/Header';
-import Detail from './components/Detail';
+import Task from './src/pages/Task';
+import NewTask from './src/pages/NewTask';
+import Header from './src/pages/Header';
+import Details from './src/pages/Details';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -20,24 +20,25 @@ export default function App() {
         <Stack.Screen component={Login} name='Login' options={{headerShown: false}}/>
         <Stack.Screen component={Register} name='Register' options={{headerShown: false}}/>
 
-        <Stack.Screen component={Home} name='Home' options={{
-          headerTitle: () => <Header name="Adicionar Nota"/>,
+        <Stack.Screen component={Task} name='Task' options={{
+          headerTitle: () => <Header name="Tarefas"/>,
           headerStyle: {
-            backgroundColor:'#67b05b',
-            height:100,
-          }
+            backgroundColor:'#636AF2',
+            height:89,
+          },
+          headerLeft: null
         }}/>
-        <Stack.Screen component={AddTask} name='AddTask' options={{
+        <Stack.Screen component={NewTask} name='NewTask' options={{
            headerTitle: () => <Header name="Adicionar Nota"/>,
           headerStyle: {
-            backgroundColor:'#67b05b',
+            backgroundColor:'#636AF2',
             height:100,
           }
         }}/>
-        <Stack.Screen component={Detail} name='Detail' options={{
+        <Stack.Screen component={Details} name='Details' options={{
           headerTitle: () => <Header name="Adicionar Nota"/>,
           headerStyle: {
-            backgroundColor:'#67b05b',
+            backgroundColor:'#636AF2',
             height:100,
           }
         }}/>
