@@ -1,4 +1,5 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { collection } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import {TextInput, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 

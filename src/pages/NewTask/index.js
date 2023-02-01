@@ -11,20 +11,13 @@ export default function NewTask({ navigation, route }, props) {
     const [title, setTitle] = useState('');
     const [note, setNote] = useState('');
     const [noteDate, setNoteDate] = useState('');
-
-    // PARTE DO DATEPICKER
-    const [date, setDate] = useState(new Date());
-    const [mode, setMode] = useState('date');
-    const [show, setShow] = useState(false);
-    const [text, setText] = useState('');
-
-    const userID = firebase.auth().currentUser.uid;
+    const [uid, setUid] = useState(firebase.auth().currentUser.uid);
 
     function handleAdd() {
         firebase.firestore()
-        .collection(userID)
+        .collection('tasks')
         .add({
-            title, note, noteDate,
+            title, note, noteDate, uid
         })
         .then(() => {
             setTitle('')
@@ -36,23 +29,6 @@ export default function NewTask({ navigation, route }, props) {
         .catch((error) => {
             alert(error)
         });
-    }
-
-    const onChange = (event, selectedDate) => {
-        const currentDate = selectedDate || date;
-        setShow(Platform.OS === 'ios');
-        setDate(currentDate);
-
-        let tempDate = new Date(currentDate);
-        let fDate = tempDate.getDate() + '/' + (tempDate.getMonth() + 1) + '/' + tempDate.getFullYear();
-        let fTime = tempDate.getHours()+ 'h' + ':' + tempDate.getMinutes() + 'm';
-        setText(fDate + '\n' + fTime);
-        setNoteDate(fDate);
-    }
-
-    const showMode = (currentMode) => {
-        setShow(true);
-        setMode(currentMode);
     }
 
     return (
@@ -72,25 +48,21 @@ export default function NewTask({ navigation, route }, props) {
                 multiline={true}
                 placeholderTextColor="#636AF2"
             />
+
+            <TextInput 
+                placeholder='Data'
+                value={noteDate}
+                onChangeText={(text) => setNoteDate(text)}
+                style={styles.inputDate}
+                multiline={true}
+                placeholderTextColor="#636AF2"
+            />
             
             <TouchableOpacity
                 style={styles.buttonData}
                 onPress={() => showMode('date')}
             >
-                <Text style={styles.buttonTextData}>
-                    Adicionar data
-                </Text>
-            
-                {show && (
-                <DateTimePicker
-                testID='dateTimePicker'
-                locale="pt-BR"
-                value={date}
-                mode={mode}
-                is24Hour={true}
-                display='default'
-                onChange={onChange}
-            />)}
+
             </TouchableOpacity>
 
             <TouchableOpacity

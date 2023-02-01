@@ -20,14 +20,7 @@ export default function App() {
         <Stack.Screen component={Login} name='Login' options={{headerShown: false}}/>
         <Stack.Screen component={Register} name='Register' options={{headerShown: false}}/>
 
-        <Stack.Screen component={Task} name='Task' options={{
-          headerTitle: () => <Header name="Tarefas"/>,
-          headerStyle: {
-            backgroundColor:'#636AF2',
-            height:89,
-          },
-          headerLeft: null
-        }}/>
+        <Stack.Screen component={Task} name='Task' options={{headerShown: false}}/>
         <Stack.Screen component={NewTask} name='NewTask' options={{
            headerTitle: () => <Header name="Adicionar Nota"/>,
           headerStyle: {

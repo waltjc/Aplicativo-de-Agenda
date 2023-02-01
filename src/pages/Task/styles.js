@@ -38,8 +38,8 @@ const styles = StyleSheet.create({
         height:60,
         position:"absolute",
         bottom: 30,
-        left:20,
-        backgroundColor:"#636AF2",
+        right: 20,
+        backgroundColor:"#F25E5E",
         borderRadius:50,
         justifyContent:"center",
         alignItems: "center"
@@ -48,8 +48,8 @@ const styles = StyleSheet.create({
         width: 60,
         height: 60,
         position: 'absolute',
-        bottom: 30,
-        right: 20,
+        top: 45,
+        right: 5,
         justifyContent: "center",
         alignItems:"center"
     },

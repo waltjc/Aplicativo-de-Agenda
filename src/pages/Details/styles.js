@@ -28,6 +28,17 @@ const styles = StyleSheet.create({
         padding: 10,
         margin: 2
     },
+    inputDate: {
+        fontSize: 18,
+        marginTop: 20,
+        marginBottom: 10,
+        height: 50,
+        width: '97%',
+        borderWidth: 1,
+        borderRadius: 5,
+        borderColor: '#636AF2',
+        padding: 10
+    },
     buttonView: {
         flexDirection: 'row',
         justifyContent: 'space-around',

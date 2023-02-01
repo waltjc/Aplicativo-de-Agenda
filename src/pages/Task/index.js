@@ -6,6 +6,8 @@ import {firebase} from '../../config/config'
 import styles from './styles';
 import { FlashList } from '@shopify/flash-list';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Header } from 'react-native-elements';
+import LinearGradient from 'react-native-linear-gradient';
 
 export default function Task({ navigation, route }) {
 
@@ -22,12 +24,15 @@ export default function Task({ navigation, route }) {
     //Pegando os dados do firestore
     useEffect(() => {
         firebase.firestore()
-        .collection(userID)
+        .collection('tasks')
         .onSnapshot((querySnapshot) => {
             const newNotes = [];
             querySnapshot.forEach((doc) => {
-                const {note, title, noteDate} = doc.data();
-                newNotes.push({note, title, noteDate, id: doc.id});
+                const {note, title, noteDate, uid} = doc.data();
+                if (uid == userID){
+                    newNotes.push({note, title, noteDate, id: doc.id});
+                }
+                
             });
             setNotes(newNotes);
         });
@@ -35,6 +40,12 @@ export default function Task({ navigation, route }) {
 
     return (
         <View style={styles.container}>
+            <Header
+                placement="left"
+                centerComponent={{ text: 'Tarefas', style: { color: '#fff', fontSize: 23 } }}
+                backgroundColor='#636AF2'
+            />
+
             <FlashList
             data={notes}
             numColumns={2}
@@ -73,7 +84,7 @@ export default function Task({ navigation, route }) {
                     <MaterialCommunityIcons 
                         name='location-exit'
                         size={30}
-                        color="#636AF2"
+                        color="#FFF"
                     />
                 </Text>
                 

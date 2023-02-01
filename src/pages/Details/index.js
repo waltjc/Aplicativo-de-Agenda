@@ -10,31 +10,12 @@ export default function Details ({ navigation, route }) {
     const [noteTitle, setNoteTitle] = useState(route.params.item.title);
     const [noteDate, setNoteDate] = useState(route.params.item.noteDate);
 
-    const [date, setDate] = useState(new Date());
-    const [mode, setMode] = useState('date');
-    const [show, setShow] = useState(false);
-
-    const onChange = (event, selectedDate) => {
-        const currentDate = selectedDate || date;
-        setShow(Platform.OS === 'ios');
-        setDate(currentDate);
-
-        let tempDate = new Date(currentDate);
-        let fDate = tempDate.getDate() + '/' + (tempDate.getMonth() + 1) + '/' + tempDate.getFullYear();
-        setNoteDate(fDate);
-    }
-
-    const showMode = (currentMode) => {
-        setShow(true);
-        setMode(currentMode);
-    }
-
     const userID = firebase.auth().currentUser.uid;
     
     const handleUpdate = () => {
         if (noteTitle && noteTitle.length > 0){
             firebase.firestore()
-            .collection(userID)
+            .collection('tasks')
             .doc(route.params.item.id)
             .update({
                 title: noteTitle,
@@ -53,7 +34,7 @@ export default function Details ({ navigation, route }) {
     //DELETAR A NOTA
     const handleDelete = () => {
         firebase.firestore()
-        .collection(userID)
+        .collection('tasks')
         .doc(route.params.item.id)
         .delete()
         .then(() => {
@@ -80,25 +61,13 @@ export default function Details ({ navigation, route }) {
                 multiline={true}
             />
 
-            <TouchableOpacity
-                style={styles.buttonDate}
-                onPress={() => showMode('date')}
-            >
-                <Text style={styles.buttonText}>
-                    Editar data
-                </Text>
-            
-                {show && (
-                    <DateTimePicker
-                    testID='dateTimePicker'
-                    locale="pt-BR"
-                    value={date}
-                    mode={mode}
-                    is24Hour={true}
-                    display='default'
-                    onChange={onChange}
-                />)}
-            </TouchableOpacity>
+            <TextInput 
+                placeholder='Data dd/mm/aaaa'
+                value={noteDate}
+                onChangeText={(text) => setNoteDate(text)}
+                style={styles.inputDate}
+                placeholderTextColor="#636AF2"
+            />
 
             <View style={styles.buttonView}>
                 <TouchableOpacity
