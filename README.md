@@ -8,7 +8,7 @@
 - [x] [Firebase](https://firebase.google.com)
 - [x] [Expo](https://expo.io)
 
-## Features
+## 📦 Features
 - [x] Realtime com Firebase, sincronizado em todos os dispositivos
 - [x] Cadastrar tarefas
 - [x] Login/Cadastro
