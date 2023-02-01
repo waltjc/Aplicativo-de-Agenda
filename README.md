@@ -1,8 +1,4 @@
-<h1 align="center">
-📄<br>Agenda
-</h1>
-
-# 📚 Descrição
+# 🎈 Introdução
 
 > Este repositório foi desenvolvido como projeto para a disciplinade Programação para Dispositivos Móveis utilizando React Native e Firebase para a sua construção. O aplicativo possui o CRUD completo contando com login e cadastro dos usários.
 ---
