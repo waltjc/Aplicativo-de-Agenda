@@ -4,59 +4,75 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        backgroundColor: '#fff'
+        backgroundColor: '#0F0D19'
     },
     inputTitle: {
         fontSize: 18,
-        fontWeight: 'bold',
+        color: '#FFF',
         marginTop: 20,
         marginBottom: 10,
         height: 50,
         width: '97%',
         borderWidth: 1,
-        borderRadius: 5,
-        borderColor: '#636AF2',
+        borderRadius: 12,
+        borderColor: '#28DF99',
         padding: 10
     },
     inputNote: {
         fontSize: 18,
-        height: 240,
+        color: '#FFF',
+        height: 150,
         width: '97%',
-        borderColor: '#636AF2',
+        borderColor: '#3F3D47',
         borderWidth: 1,
-        borderRadius: 5,
+        borderRadius: 12,
         padding: 10,
         margin: 2
     },
     inputDate: {
         fontSize: 18,
+        color: '#FFF',
         marginTop: 20,
         marginBottom: 10,
         height: 50,
         width: '97%',
         borderWidth: 1,
-        borderRadius: 5,
-        borderColor: '#636AF2',
+        borderRadius: 12,
+        borderColor: '#3F3D47',
         padding: 10
     },
     button: {
-        backgroundColor: 'white',
+        backgroundColor: '#DDDDE1',
         borderRadius: 10,
         marginTop: 20,
         height: 55,
-        width: 130,
+        width: 150,
         alignItems: 'center',
         justifyContent: 'center',
         elevation: 7,
         shadowColor: 'black'
     },
     buttonText: {
-        color: 'black',
-        fontSize: 19,
+        color: '#0F0D19',
+        fontSize: 22,
     },
     buttonTextData: {
         color: 'black',
         fontSize: 16,
+    },
+    buttonBack: {
+        width: 30,
+        height: 30,
+        position: 'absolute',
+        top: 40,
+        left: 10,
+        justifyContent: "center",
+        alignItems:"center"
+    },
+    iconButtonBack: {
+        color: "#fffff",
+        fontSize: 25,
+        fontWeight:"bold"
     }
 })
 

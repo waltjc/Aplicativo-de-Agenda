@@ -3,52 +3,49 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#E9E9F2',
+        backgroundColor: '#0F0D19',
         paddingTop: 20
     },
     noteView: {
         flex: 1,
-        backgroundColor: '#636AF2',
+        backgroundColor: '#DDDDE1',
         margin: 10,
-        padding: 10,
+        padding: 5,
         borderRadius: 10,
-        shadowColor: 'black',
-        shadowOffset: { Width: 0, height: 2},
-        shadowOpacity: 0.8,
         elevation: 7,
         alignItems: 'center'
     },
     noteTitle: {
-        fontSize: 20,
-        color: "white",
+        fontSize: 22,
+        color: "#0F0D19",
         fontWeight: 'bold'
     },
     noteDescription: {
-        fontSize: 16,
-        color: "white",
+        fontSize: 18,
+        color: "#0F0D19",
         marginTop: 5
     },
     noteDate: {
         fontSize: 14,
-        color: '#FFF',
+        color: '#0F0D19',
         marginTop: 5
     },
     buttonNewTask:{
-        width:60,
-        height:60,
-        position:"absolute",
+        width: 60,
+        height: 60,
+        position: "absolute",
         bottom: 30,
         right: 20,
-        backgroundColor:"#F25E5E",
-        borderRadius:50,
-        justifyContent:"center",
+        backgroundColor: "#28DF99",
+        borderRadius: 50,
+        justifyContent: "center",
         alignItems: "center"
     },
     buttonLogout: {
-        width: 60,
-        height: 60,
+        width: 30,
+        height: 30,
         position: 'absolute',
-        top: 45,
+        top: 58,
         right: 5,
         justifyContent: "center",
         alignItems:"center"
@@ -59,7 +56,7 @@ const styles = StyleSheet.create({
         fontWeight:"bold"
     },
     iconButton:{
-        color:"#fff",
+        color:"#0F0D19",
         fontSize:23
     },
 })

@@ -1,7 +1,7 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { collection } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
-import {TextInput, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import {TextInput, View, Text, TouchableOpacity } from 'react-native';
 
 import {firebase} from '../../config/config'
 import styles from './styles';
@@ -13,15 +13,12 @@ export default function Login({navigation}) {
 
     const loginFirebase = () => {
         firebase.auth().signInWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-            let user = userCredential.user;
+        .then(() => {
             navigation.navigate('Task');
-            errorLogin = false;
+            setErrorLogin(false);
         })
         .catch((error) => {
             setErrorLogin(true);
-            let errorCode = error.code;
-            let errorMessage = error.message;
         })
     }
     //Verificando se existe um usuário conectado
@@ -35,22 +32,23 @@ export default function Login({navigation}) {
 
  return (
     <View style={styles.view}>
-        <Text style={styles.header}>Login</Text>
+        <Text style={styles.header}>Bem vindo de volta!</Text>
+        <Text style={styles.subHeader}>É bom te rever.</Text>
 
         <TextInput 
             value={email}
             onChangeText={setEmail}
-            style={styles.input}
-            placeholder="Digite o email"
-            placeholderTextColor="#636AF2"
+            style={styles.inputEmail}
+            placeholder="Email"
+            placeholderTextColor="#858587"
         />
         
         <TextInput 
             value={password}
             onChangeText={setPassword}
-            style={styles.input}
-            placeholder="Digite a senha"
-            placeholderTextColor="#636AF2"
+            style={styles.inputPassword}
+            placeholder="Senha"
+            placeholderTextColor="#858587"
             secureTextEntry={true}
         />
 
@@ -89,7 +87,7 @@ export default function Login({navigation}) {
 
 
         <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-            <Text style={styles.txtFoot}>Não possui conta? Cadastre-se</Text>
+            <Text style={styles.txtFoot}>Não tem uma conta? Cadastre-se</Text>
         </TouchableOpacity>
     </View>
   );

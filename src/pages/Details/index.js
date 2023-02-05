@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import { firebase } from '../../config/config';
 import styles from './styles';
-import DateTimePicker from '@react-native-community/datetimepicker';
-
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Header } from 'react-native-elements';
 
 export default function Details ({ navigation, route }) {
     const [noteText, setNoteText] = useState(route.params.item.note);
@@ -47,6 +47,12 @@ export default function Details ({ navigation, route }) {
 
     return (
         <View style={styles.container}>
+            <Header
+                placement="center"
+                centerComponent={{ text: 'Editar Tarefa', style: { color: '#fff', fontSize: 22 } }}
+                backgroundColor='#0F0D19'
+            />
+
             <TextInput
                 placeholder='Titulo'
                 value={noteTitle}
@@ -68,6 +74,18 @@ export default function Details ({ navigation, route }) {
                 style={styles.inputDate}
                 placeholderTextColor="#636AF2"
             />
+            <TouchableOpacity
+                style={styles.buttonBack}
+                onPress={() => navigation.navigate('Task')}
+                >
+                    <Text style={styles.iconButtonBack}>
+                        <MaterialCommunityIcons 
+                            name='keyboard-backspace'
+                            size={30}
+                            color="white"
+                        />
+                    </Text>
+                </TouchableOpacity>
 
             <View style={styles.buttonView}>
                 <TouchableOpacity
@@ -76,6 +94,7 @@ export default function Details ({ navigation, route }) {
                 >
                     <Text style={styles.buttonText}>Excluir</Text>
                 </TouchableOpacity>
+
 
                 <TouchableOpacity
                     style={styles.button}

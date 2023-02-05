@@ -4,7 +4,8 @@ import { View, Text, Keyboard, TextInput, TouchableOpacity, Platform} from 'reac
 
 import styles from './styles';
 import { firebase } from '../../config/config';
-import DateTimePicker from '@react-native-community/datetimepicker';
+import { Header } from 'react-native-elements';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function NewTask({ navigation, route }, props) {
     // PARTE DE AUTENTICAÇÕES
@@ -31,31 +32,45 @@ export default function NewTask({ navigation, route }, props) {
         });
     }
 
+    const isNumber = () => {
+        if (isNaN(inputValue)) {
+          alert('Não é um número');
+        } else {
+          alert('É um número');
+        }
+      };
+
     return (
         <View style={styles.container}>
+            <Header
+                placement="center"
+                centerComponent={{ text: 'Adicionar Tarefa', style: { color: '#fff', fontSize: 22 } }}
+                backgroundColor='#0F0D19'
+            />
+
             <TextInput 
                 placeholder='Título'
                 value={title}
                 onChangeText={(text) => setTitle(text)}
                 style={styles.inputTitle}
-                placeholderTextColor="#636AF2"
+                placeholderTextColor="#858587"
             />
             <TextInput 
-                placeholder='Descrição'
+                placeholder='Descrição: reunião às 16h'
                 value={note}
                 onChangeText={(text) => setNote(text)}
                 style={styles.inputNote}
                 multiline={true}
-                placeholderTextColor="#636AF2"
+                placeholderTextColor="#858587"
             />
 
             <TextInput 
-                placeholder='Data'
+                placeholder='Data: xx/xx/xxxx'
                 value={noteDate}
                 onChangeText={(text) => setNoteDate(text)}
                 style={styles.inputDate}
                 multiline={true}
-                placeholderTextColor="#636AF2"
+                placeholderTextColor="#858587"
             />
             
             <TouchableOpacity
@@ -71,6 +86,19 @@ export default function NewTask({ navigation, route }, props) {
             >
                 <Text style={styles.buttonText}>
                     Adicionar
+                </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+            style={styles.buttonBack}
+            onPress={() => navigation.navigate('Task')}
+            >
+                <Text style={styles.iconButtonBack}>
+                    <MaterialCommunityIcons 
+                        name='keyboard-backspace'
+                        size={30}
+                        color="#FFF"
+                    />
                 </Text>
             </TouchableOpacity>
         

@@ -7,17 +7,17 @@ import styles from './styles';
 import { FlashList } from '@shopify/flash-list';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Header } from 'react-native-elements';
-import LinearGradient from 'react-native-linear-gradient';
 
 export default function Task({ navigation, route }) {
 
     const [notes, setNotes] = useState([]);
     const userID = firebase.auth().currentUser.uid;
-
+    const [userName, setUserName] = useState([]);
+      
     function logout(){
         firebase.auth().signOut()
         .then(() => {
-            navigation.navigate("Login")
+            navigation.navigate("Home")
         }).catch((error) => {
         })
     }
@@ -30,6 +30,7 @@ export default function Task({ navigation, route }) {
             querySnapshot.forEach((doc) => {
                 const {note, title, noteDate, uid} = doc.data();
                 if (uid == userID){
+
                     newNotes.push({note, title, noteDate, id: doc.id});
                 }
                 
@@ -41,9 +42,9 @@ export default function Task({ navigation, route }) {
     return (
         <View style={styles.container}>
             <Header
-                placement="left"
-                centerComponent={{ text: 'Tarefas', style: { color: '#fff', fontSize: 23 } }}
-                backgroundColor='#636AF2'
+                placement="center"
+                centerComponent={{ text: 'Tarefas', style: { color: '#DDDDE1', fontSize: 22 } }}
+                backgroundColor='#0F0D19'
             />
 
             <FlashList
@@ -69,26 +70,27 @@ export default function Task({ navigation, route }) {
                     </Pressable>
                 </View>
             )}
-            />
+        />
+
         <TouchableOpacity
             style={styles.buttonNewTask}
             onPress={() => navigation.navigate('NewTask')}
         >
             <Text style={styles.iconButton}>+</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-                style={styles.buttonLogout}
-                onPress={logout}
+        </TouchableOpacity>
+
+        <TouchableOpacity
+            style={styles.buttonLogout}
+            onPress={logout}
             >
-                <Text style={styles.iconButtonLogout}>
-                    <MaterialCommunityIcons 
-                        name='location-exit'
-                        size={30}
-                        color="#FFF"
-                    />
-                </Text>
-                
-            </TouchableOpacity>
-        </View>
+            <Text style={styles.iconButtonLogout}>
+                <MaterialCommunityIcons 
+                    name='location-exit'
+                    size={30}
+                    color="#FFF"
+                />
+            </Text>
+        </TouchableOpacity>
+    </View>
     )
 }

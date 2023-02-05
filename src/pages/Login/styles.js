@@ -4,47 +4,63 @@ const styles = StyleSheet.create({
     view: {
         flex: 1,
         paddingHorizontal: 25,
-        backgroundColor: '#E9E9F2',
+        backgroundColor: '#0F0D19',
         width: '100%',
-        justifyContent: 'center',
-        alignItems: 'center',
-        paddingTop: Platform.OS == "ios" ? 0 : 50
+        alignItems: 'center'
     },
     header: {
-        fontSize: 50,
-        color: '#636AF2',
-        fontWeight: 'bold'
+        fontSize: 34,
+        color: '#DDDDE1',
+        fontWeight: 'bold',
+        paddingTop: 120,
     },
-    input: {
-        fontSize: 20,
-        width: 300,
+    subHeader: {
+        fontSize: 25,
+        color: '#DDDDE1',
+        marginBottom: 25
+    },
+    inputEmail: {
+        fontSize: 18,
+        color: '#858587',
         marginTop: 10,
+        marginLeft: 5,
+        width: '100%',
+        height: 48,
         padding: 10,
-        height: 50,
-        borderBottomWidth: 1,
-        borderBottomColor: '#636AF2',
-        marginLeft: "auto",
-        marginRight: "auto",
-        color:"#636AF2"
+        borderRadius: 12,
+        borderWidth: 2,
+        borderColor: '#28DF99'
+    },
+    inputPassword: {
+        fontSize: 18,
+        color: '#858587',
+        marginTop: 10,
+        marginLeft: 5,
+        width: '100%',
+        height: 48,
+        padding: 10,
+        borderRadius: 12,
+        borderWidth: 2,
+        borderColor: '#3F3D47'
     },
     button: {
-        width: 200,
+        width: 250,
         height: 50,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#636AF2",
-        borderRadius: 50,
+        backgroundColor: "#DDDDE1",
+        borderRadius: 15,
         marginTop: 30
     },
     txtButton: {
-        color: '#FFF',
-        fontSize: 18,
+        color: '#0F0D19',
+        fontSize: 23,
         fontWeight: 'bold'
     },
     txtFoot: {
-        color: "#636AF2",
-        fontSize: 12,
-        marginTop: 25
+        color: "#858587",
+        fontSize: 13,
+        marginTop: 18
     },
     contentAlert: {
         marginTop: 20,
