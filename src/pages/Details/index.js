@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
-import { firebase } from '../../config/config';
-import styles from './styles';
+import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+
 import { Header } from 'react-native-elements';
+import { firebase } from '../../config';
+import styles from './styles';
 
 export default function Details ({ navigation, route }) {
     const [noteText, setNoteText] = useState(route.params.item.note);

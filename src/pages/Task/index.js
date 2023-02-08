@@ -1,7 +1,7 @@
 import { View, Text, Pressable, TouchableOpacity } from 'react-native'
 import React, { useState, useEffect} from 'react'
 
-import {firebase} from '../../config/config'
+import {firebase} from '../../config'
 
 import styles from './styles';
 import { FlashList } from '@shopify/flash-list';
@@ -12,7 +12,6 @@ export default function Task({ navigation, route }) {
 
     const [notes, setNotes] = useState([]);
     const userID = firebase.auth().currentUser.uid;
-    const [userName, setUserName] = useState([]);
       
     function logout(){
         firebase.auth().signOut()
@@ -30,7 +29,6 @@ export default function Task({ navigation, route }) {
             querySnapshot.forEach((doc) => {
                 const {note, title, noteDate, uid} = doc.data();
                 if (uid == userID){
-
                     newNotes.push({note, title, noteDate, id: doc.id});
                 }
                 
@@ -43,7 +41,7 @@ export default function Task({ navigation, route }) {
         <View style={styles.container}>
             <Header
                 placement="center"
-                centerComponent={{ text: 'Tarefas', style: { color: '#DDDDE1', fontSize: 22 } }}
+                centerComponent={{ text: 'Tarefas', style: { color: '#DDDDE1', fontSize: 23 } }}
                 backgroundColor='#0F0D19'
             />
 

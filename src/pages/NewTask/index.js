@@ -1,9 +1,9 @@
 //import liraries
 import React, { useState} from 'react';
-import { View, Text, Keyboard, TextInput, TouchableOpacity, Platform} from 'react-native';
+import { View, Text, Keyboard, TextInput, TouchableOpacity} from 'react-native';
 
 import styles from './styles';
-import { firebase } from '../../config/config';
+import { firebase } from '../../config';
 import { Header } from 'react-native-elements';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 

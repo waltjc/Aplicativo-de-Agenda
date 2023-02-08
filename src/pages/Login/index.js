@@ -1,9 +1,8 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { collection } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import {TextInput, View, Text, TouchableOpacity } from 'react-native';
 
-import {firebase} from '../../config/config'
+import {firebase} from '../../config'
 import styles from './styles';
 
 export default function Login({navigation}) {
@@ -52,6 +51,7 @@ export default function Login({navigation}) {
             secureTextEntry={true}
         />
 
+        {/* MANIPULANDO A CONSTANTE DE ERRO */}
         {errorLogin == true
         ?
             <View style={styles.contentAlert}> 
@@ -64,7 +64,6 @@ export default function Login({navigation}) {
             </View>
         :
            <View/>
-            
         }
 
         {email == "" || password == ""
@@ -84,7 +83,6 @@ export default function Login({navigation}) {
                 <Text style={styles.txtButton}>Entrar</Text>
             </TouchableOpacity>
         }
-
 
         <TouchableOpacity onPress={() => navigation.navigate('Register')}>
             <Text style={styles.txtFoot}>Não tem uma conta? Cadastre-se</Text>

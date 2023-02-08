@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { TextInput, View, Text, TouchableOpacity, Alert } from 'react-native';
+import { TextInput, View, Text, TouchableOpacity } from 'react-native';
 
-import { doc, updateDoc, deleteDoc } from 'firebase/firestore';
-import { firebase, db } from '../../config/config';
+import { firebase } from '../../config'
 import styles from './styles';
 
 export default function Register({navigation}) {
@@ -18,11 +17,14 @@ export default function Register({navigation}) {
             firebase.firestore()
             .collection('users')
             .add({
-                name, email, phone, password
+                name, email, phone
             })
+            navigation.navigate('Task')
         })
         .catch((error) => {
-            alert(error)
+            if(error.code == 'auth/invalid-email'){
+                alert('O email inserido é inválido');
+            }
         })
     }
 
@@ -42,6 +44,8 @@ export default function Register({navigation}) {
             value={email}
             onChangeText={setEmail}
             style={styles.inputAll}
+            keyboardType='email-address'
+            autoCapitalize='none'
             placeholder="Digite o email"
             placeholderTextColor="#858587"
         />
@@ -66,7 +70,7 @@ export default function Register({navigation}) {
 
         <TouchableOpacity
             style={styles.button}
-            onPress={() => registerFirebase(name, email, phone, password )}
+            onPress={() => registerFirebase(name, email, phone, password)}
         >
             <Text style={styles.txtButton}>Cadastrar</Text>
         </TouchableOpacity>
